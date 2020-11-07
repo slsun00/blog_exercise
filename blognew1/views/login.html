@@ -1,0 +1,50 @@
+{{template "header"}}
+        <title> 登陆我的 beego 博客</title>
+    </head>
+
+    <body>
+        <div calss="container" style="width:500px">
+            <form method="POST" action="/login">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Account</label>
+                    <input id="userName" class="form-control"  placeholder="Enter account" name="userName">
+                </div>
+                <div class="form-group">
+                    <label >Password</label>
+                    <input id="userPwd" type="password" class="form-control"  placeholder="Password" name="userPwd">
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name=""autoLogin> 自动登陆
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default" onclick="return checkInput();">登陆</button>
+                <button type="submit" class="btn btn-default" onclick="return backToHome();">返回</button>
+
+            </form>
+
+            <!-- 用来检测账号密码是否合理,验证操作-->
+            <script type="text/javascript">
+                function checkInput(){
+                    var userName = document.getElementById("userName");
+                    if  (userName.value.length == 0) {
+                        alert("请输入账号");
+                        return false
+                    }
+                    var userPwd = document.getElementById("userPwd");
+                    if  (userPwd.value.length == 0) {
+                        alert("请输入密码");
+                        return false
+                    }
+                    return true
+                }
+
+                function backToHome() {
+                    window.location.href = "/"
+                    return false
+                }
+            </script>
+        </div>
+    </body>
+</html>
